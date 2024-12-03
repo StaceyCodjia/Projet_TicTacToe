@@ -3,18 +3,17 @@
 
 void Initialisation(std::array<char , 9 > &grille )
 {
-    grille.fill(' ');
+    for (size_t i = 0; i < grille.size(); ++i) {
+        grille[i] = '1' + i;
+    }
 }
 void AfficheGrille(const std::array<char , 9 > &grille)
 {
-    for( int i = 0; i < 9; i++)
-    {
-        std::cout << grille[i];
-        if ((i + 1) % 3 == 0) {
-            std::cout << "\n";
-            if (i < 6) std::cout << "---------\n";
-        } else {
-            std::cout << " | ";
+    for (size_t i = 0; i < grille.size(); i++) {
+        std::cout << "| " << grille[i] << " ";
+        if ((i + 1) % 3 == 0) { 
+            std::cout << "|\n";
+            if (i < 6) std::cout << "-------------\n"; 
         }
     }
     std::cout << "\n";
