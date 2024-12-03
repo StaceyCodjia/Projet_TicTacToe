@@ -10,4 +10,4 @@ struct Player
 
     void afficheInfo();
 };
-Player creeJoueur();
+Player creeJoueur(char memeSymbol = '\n');

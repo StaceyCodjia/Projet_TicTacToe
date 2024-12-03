@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include "Player.hpp"
 
 void Initialisation(std::array<char , 9 > &grille )
 {
@@ -20,9 +21,14 @@ void AfficheGrille(const std::array<char , 9 > &grille)
 }
 
 void modeDeuxJoueurs() {
+
     std::array<char , 9 > grille;
     Initialisation(grille);
     std::cout << "Debut de la partie 2 joueurs !" << std::endl;
+    Player J1 = creeJoueur();
+    Player J2 = creeJoueur(J1.symbol);
+    J1.afficheInfo();
+    J2.afficheInfo();
     AfficheGrille(grille);
 }
 void modeIA() {
