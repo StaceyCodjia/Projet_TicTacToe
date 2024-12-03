@@ -1,7 +1,5 @@
 #include <iostream>
 #include <array>
-void modeDeuxJoueurs() {}
-void modeIA() {}
 
 void Initialisation(std::array<char , 9 > &grille )
 {
@@ -21,6 +19,20 @@ void AfficheGrille(const std::array<char , 9 > &grille)
     }
     std::cout << "\n";
 }
+
+void modeDeuxJoueurs() {
+    std::array<char , 9 > grille;
+    Initialisation(grille);
+    std::cout << "Debut de la partie 2 joueurs !" << std::endl;
+    AfficheGrille(grille);
+}
+void modeIA() {
+    std::array<char , 9 > grille;
+    Initialisation(grille);
+    std::cout << "Debut de la partie contre l'IA !" << std::endl;
+    AfficheGrille(grille);
+}
+
 int main()
 {
     int choix;
