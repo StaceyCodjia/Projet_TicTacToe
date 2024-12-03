@@ -1,7 +1,19 @@
 #include <iostream>
+#include <array>
 void modeDeuxJoueurs() {}
 void modeIA() {}
 
+void Initialisation(std::array<char , 9 > &grille )
+{
+    grille.fill(' ');
+}
+void AfficheGrille(const char std::array<char , 9 > &grille)
+{
+    for( int i = 0; i < 9; i++)
+    {
+
+    }
+}
 int main()
 {
     int choix;
