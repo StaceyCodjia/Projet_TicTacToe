@@ -7,12 +7,19 @@ void Initialisation(std::array<char , 9 > &grille )
 {
     grille.fill(' ');
 }
-void AfficheGrille(const char std::array<char , 9 > &grille)
+void AfficheGrille(const std::array<char , 9 > &grille)
 {
     for( int i = 0; i < 9; i++)
     {
-
+        std::cout << grille[i];
+        if ((i + 1) % 3 == 0) {
+            std::cout << "\n";
+            if (i < 6) std::cout << "---------\n";
+        } else {
+            std::cout << " | ";
+        }
     }
+    std::cout << "\n";
 }
 int main()
 {
