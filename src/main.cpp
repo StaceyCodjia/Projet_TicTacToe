@@ -9,7 +9,7 @@ int main()
         std::cout << "=====================\n";
         std::cout << "   Jeu de Morpion    \n";
         std::cout << "=====================\n";
-        std::cout << "1. Jouer à 2 joueurs\n";
+        std::cout << "1. Jouer a 2 joueurs\n";
         std::cout << "2. Jouer contre l'IA\n";
         std::cout << "3. Quitter\n";
         std::cout << "Entrez votre choix : ";
@@ -32,5 +32,5 @@ int main()
         }
     }
     while(choix !=3);
-
+    return 0;
 }
