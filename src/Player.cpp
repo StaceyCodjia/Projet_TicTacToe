@@ -3,7 +3,7 @@
 
 void Player::afficheInfo()
 {
-    std::cout << "Joueur : " << nom << "avec le symbole " << symbol << std::endl;
+    std::cout << "Joueur : " << nom << " avec le symbole " << symbol << std::endl;
 }
 
 Player creeJoueur(char memeSymbol)
