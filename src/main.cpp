@@ -44,9 +44,32 @@ char victoire(const std::array<char , 9 > &grille)
     return '\0';
 }
 
-void jouer()
+void jouer(const Player& joueur, std::array<char, 9> &grille)
 {
+    int choix;
+    bool coupValide = false;
 
+    std::cout << joueur.nom << " c'est à vous de jouer" << std::endl;
+
+    while(!coupValide)
+    {
+        std::cout << "Entrez le numero de votre case : ";
+        std::cin >> choix;
+
+        if(choix < 1 || choix > 9)
+        {
+        std::cout << "Numero de case invalide. Reessayer." << std::endl;
+        }
+        else if (grille[choix - 1] == 'X' || grille[choix - 1] == '0')
+        {
+            std::cout << "Cette case est deja remplie. Reessayer" << std::endl;
+        }
+        else
+        {
+            grille[choix - 1] = joueur.symbol;
+            coupValide = true;
+        }
+    }
 }
 
 void modeDeuxJoueurs() {
