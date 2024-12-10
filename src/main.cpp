@@ -1,5 +1,4 @@
 #include <iostream>
-#pragma once
 #include <array>
 #include "Player.hpp"
 
