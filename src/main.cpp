@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 #include <array>
 #include "Player.hpp"
 
@@ -18,6 +19,29 @@ void AfficheGrille(const std::array<char , 9 > &grille)
         }
     }
     std::cout << "\n";
+}
+
+char victoire(const std::array<char , 9 > &grille)
+{
+    const std::array<std::array<int, 3 > , 8 > combi ={
+        {
+            {{0,1,2}},
+            {{3,4,5}},
+            {{6,7,8}},
+            {{0,3,6}},
+            {{1,4,7}},
+            {{2,5,8}},
+            {{0,4,8}},
+            {{2,4,6}},
+        }
+    };
+    for(const auto& combi:combi){
+        if(grille[combi[0]] == grille[combi[1]] && grille[combi[1]] == grille[combi[2]]  )
+        {
+            return grille[combi[0]];
+        }
+    }
+
 }
 
 void modeDeuxJoueurs() {
