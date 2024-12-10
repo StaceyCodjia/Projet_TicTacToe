@@ -49,7 +49,7 @@ void jouer(const Player& joueur, std::array<char, 9> &grille)
     int choix;
     bool coupValide = false;
 
-    std::cout << joueur.nom << " c'est à vous de jouer" << std::endl;
+    std::cout << joueur.nom << " c'est a vous de jouer" << std::endl;
 
     while(!coupValide)
     {
@@ -99,7 +99,7 @@ void modeDeuxJoueurs() {
         char gagnant = victoire(grille);
         if(gagnant != '\0')
         {
-            std::cout << "Felicitations ! Le joueur " <<(gagnant == J1.symbol ? J1.nom : J2.nom)<< "a gagne !" << gagnant << std::endl;
+            std::cout << "Felicitations ! Le joueur " <<(gagnant == J1.symbol ? J1.nom : J2.nom)<< "a gagne !" << std::endl;
             return;
         }
         tours++;
