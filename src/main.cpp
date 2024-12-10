@@ -36,11 +36,16 @@ char victoire(const std::array<char , 9 > &grille)
         }
     };
     for(const auto& combi:combi){
-        if(grille[combi[0]] == grille[combi[1]] && grille[combi[1]] == grille[combi[2]]  )
+        if(grille[combi[0]] == grille[combi[1]] && grille[combi[1]] == grille[combi[2]] && (grille[combi[0]] == 'X' || grille[combi[0]] == 'O') )
         {
             return grille[combi[0]];
         }
     }
+    return '\0';
+}
+
+void jouer()
+{
 
 }
 
@@ -54,6 +59,29 @@ void modeDeuxJoueurs() {
     J1.afficheInfo();
     J2.afficheInfo();
     AfficheGrille(grille);
+
+    int tours = 0;
+    while(tours < 9)
+    {
+        if(tours % 2 == 0)
+        {
+            jouer(J1,grille);
+        }
+        else
+        {
+            jouer(J2, grille);
+        }
+        AfficheGrille(grille);
+
+        char gagnant = victoire(grille);
+        if(gagnant != '\0')
+        {
+            std::cout << "Felicitations ! Le joueur " <<(gagnant == J1.symbol ? J1.nom : J2.nom)<< "a gagne !" << gagnant << std::endl;
+            return;
+        }
+        tours++;
+    }
+    std::cout << "Match nul ! Aucun gagnant"<<std::endl;
 }
 void modeIA() {
     std::array<char , 9 > grille;
