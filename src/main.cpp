@@ -132,7 +132,7 @@ void modeIA() {
 
     joueur1.nom = "Joueur 1";
     joueur1.symbol = 'X';
-    ordinateur.nom = "Ordinateur";
+    ordinateur.nom = "IA";
     ordinateur.symbol = 'O';
 
     AfficheGrille(grille);
@@ -142,12 +142,12 @@ void modeIA() {
     while (resultat == '\0') {
         Player& joueurActuel = (tour % 2 == 0) ? joueur1 : ordinateur;
 
-        if (joueurActuel.nom == "Ordinateur") {
+        if (joueurActuel.nom == "IA") {
             
             int position = jouerIA(grille); 
             if (position != -1) {
                 grille[position] = joueurActuel.symbol;
-                std::cout << "L'ordinateur joue en position " << position + 1 << "\n";
+                std::cout << "L'IA joue en position " << position + 1 << "\n";
             }
         } else 
         {
@@ -161,7 +161,7 @@ void modeIA() {
     if (resultat == 'X') {
         std::cout << "Felicitations, vous avez gagne !\n";
     } else if (resultat == 'O') {
-        std::cout << "L'ordinateur a gagné !\n";
+        std::cout << "L'IA a gagne !\n";
     } else if (resultat == 'D') {
         std::cout << "Match nul !\n";
     }
