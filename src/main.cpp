@@ -59,7 +59,7 @@ void jouer(const Player& joueur, std::array<char, 9> &grille)
         {
         std::cout << "Numero de case invalide. Reessayer." << std::endl;
         }
-        else if (grille[choix - 1] == 'X' || grille[choix - 1] == '0')
+        else if (grille[choix - 1] == 'X' || grille[choix - 1] == 'O')
         {
             std::cout << "Cette case est deja remplie. Reessayer" << std::endl;
         }
@@ -98,7 +98,7 @@ void modeDeuxJoueurs() {
         char gagnant = victoire(grille);
         if(gagnant != '\0')
         {
-            std::cout << "Felicitations ! Le joueur " <<(gagnant == J1.symbol ? J1.nom : J2.nom)<< "a gagne !" << std::endl;
+            std::cout << "Felicitations ! Le joueur " <<(gagnant == J1.symbol ? J1.nom : J2.nom)<< " a gagne !" << std::endl;
             return;
         }
         tours++;
@@ -117,9 +117,7 @@ void modeIA() {
     ordinateur.symbol = 'O';
 
     AfficheGrille(grille);
-    
-
-
+   
 }
 
 int main()
