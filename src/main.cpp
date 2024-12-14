@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include <vector>
 #include "Player.hpp"
 
 void Initialisation(std::array<char , 9 > &grille )
@@ -105,6 +106,24 @@ void modeDeuxJoueurs() {
     }
     std::cout << "Match nul ! Aucun gagnant"<<std::endl;
 }
+
+int jouerIA(const std::array<char, 9>& grille) {
+    std::vector<int> casesLibres;
+
+    for (int i = 0; i < 9; ++i) {
+        if (grille[i] != 'X' && grille[i] != 'O') {
+            casesLibres.push_back(i);
+        }
+    }
+
+    if (!casesLibres.empty()) {
+        int indexChoisi = rand() % casesLibres.size();
+        return casesLibres[indexChoisi];
+    }
+
+    return -1; 
+}
+
 void modeIA() {
     std::array<char , 9 > grille;
     Initialisation(grille);
@@ -117,7 +136,35 @@ void modeIA() {
     ordinateur.symbol = 'O';
 
     AfficheGrille(grille);
-   
+   char resultat = '\0';
+    int tour = 0;
+
+    while (resultat == '\0') {
+        Player& joueurActuel = (tour % 2 == 0) ? joueur1 : ordinateur;
+
+        if (joueurActuel.nom == "Ordinateur") {
+            
+            int position = jouerIA(grille); 
+            if (position != -1) {
+                grille[position] = joueurActuel.symbol;
+                std::cout << "L'ordinateur joue en position " << position + 1 << "\n";
+            }
+        } else 
+        {
+            jouer(joueurActuel, grille);
+        }
+
+        AfficheGrille(grille);
+        resultat = victoire(grille);
+        tour++;
+    }
+    if (resultat == 'X') {
+        std::cout << "Felicitations, vous avez gagne !\n";
+    } else if (resultat == 'O') {
+        std::cout << "L'ordinateur a gagné !\n";
+    } else if (resultat == 'D') {
+        std::cout << "Match nul !\n";
+    }
 }
 
 int main()
