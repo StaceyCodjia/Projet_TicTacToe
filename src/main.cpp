@@ -109,7 +109,17 @@ void modeIA() {
     std::array<char , 9 > grille;
     Initialisation(grille);
     std::cout << "Debut de la partie contre l'IA !" << std::endl;
+    Player joueur1, ordinateur;
+
+    joueur1.nom = "Joueur 1";
+    joueur1.symbol = 'X';
+    ordinateur.nom = "Ordinateur";
+    ordinateur.symbol = 'O';
+
     AfficheGrille(grille);
+    
+
+
 }
 
 int main()
@@ -133,7 +143,7 @@ int main()
         modeIA();
         break;
         case 3:
-        std::cout <<"Au revoir !"<<std::endl;
+        std::cout <<"Merci d'avoir jouer !"<<std::endl;
         break;
 
         default:
