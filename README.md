@@ -18,3 +18,7 @@ J'ai crée différentes fonctions pour le plateau, entrer les informations des j
            std::cout << "Symbole deja pris ! Choisir un autre !" << std::endl;
         }
 ```
+2. Comment gérer les victoires
+- Création d'un tableau et d'un sous tableau regroupant toutes les combinaisons gagnantes possibles.
+3. Vérifier qu'une case est libre
+- Utilisation de push_back() pour construire dynamiquement une liste de cases libres.
